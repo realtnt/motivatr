@@ -1,0 +1,38 @@
+<dataset>
+    <users 
+          username="user1"
+          password="$2a$10$Yi/6eKoXzhdBE.J0imAAauyAjgu/AfTLSYdTFmAzNJWdw37ERy8zO"
+          email="user1@mail.com"
+          mobile="07777123456"
+          first_name="Fake"
+          last_name="User"
+          image_url="https://fake.imageurl.com"
+          enabled="true"
+          created_at="2022-07-06 10:24:25.501"
+          updated_at="2022-07-06 10:24:25.501"
+          users_data_id="1"/>
+    <users 
+          username="user2"
+          password="$2a$10$Yi/6eKoXzhdBE.J0imAAauyAjgu/AfTLSYdTFmAzNJWdw37ERy8zO"
+          email="user2@mail.com"
+          mobile="07777123456"
+          first_name="Fake"
+          last_name="User"
+          image_url="https://fake.imageurl.com"
+          enabled="true"
+          created_at="2022-07-06 10:24:25.501"
+          updated_at="2022-07-06 10:24:25.501"
+          users_data_id="2"/>
+    <users 
+          username="user3"
+          password="$2a$10$Yi/6eKoXzhdBE.J0imAAauyAjgu/AfTLSYdTFmAzNJWdw37ERy8zO"
+          email="user3@mail.com"
+          mobile="07777123456"
+          first_name="Fake"
+          last_name="User"
+          image_url="https://fake.imageurl.com"
+          enabled="true"
+          created_at="2022-07-06 10:24:25.501"
+          updated_at="2022-07-06 10:24:25.501"
+          users_data_id="3"/>
+</dataset>

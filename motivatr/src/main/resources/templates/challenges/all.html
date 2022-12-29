@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head land="en">
+  <link th:href="@{/main.css}" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/5f58b769bf.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <title>Motivatr</title>
+</head>
+
+
+<body>
+  <div th:insert="fragments/general :: header"></div>
+  <div class="margin">
+    <div class="top-player-list">
+      <h1>All Challenges</h1>
+      <ul>
+        <li class="top-player" th:each="challenge: ${challenges}">
+          <div class="challenge-list-content">
+            <div class="challing-list-content-left">
+              <a th:href="@{/challenges/{id}(id=${challenge.id})}">
+                <p class="challenge-tital-list" th:text="${challenge.title}"></p>
+              </a>
+              <span th:text="${challenge.completedCount}"></span>
+              <img class="completed-user-icon" th:src="@{/images/user.svg}"></img>
+              <p class="challenge-list-description" th:text="${challenge.description}"></p>
+              <iframe 2rem; width="100rem" height="60rem" th:src="${challenge.videoUrl}" title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+            <div class="completed-marker">
+              <p th:text="${challenge.isDone} ? 'Completed' : 'Not Done'"
+                th:class="${challenge.isDone} ? 'completed-class' : 'not-done-class'"></p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+
+</html>

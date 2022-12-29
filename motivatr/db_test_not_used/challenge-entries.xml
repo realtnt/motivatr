@@ -1,0 +1,29 @@
+<dataset>
+    <challenges 
+          author_id="1"
+          title="Challenge 1"
+          description="Challenge 1 description"
+          image_url="https://fake.imageurl.com"
+          video_url="https://fake.videourl.com"
+
+          created_at="2022-07-06 10:24:25.501"
+          updated_at="2022-07-06 10:24:25.501"/>
+    <challenges 
+          author_id="1"
+          title="Challenge 2"
+          description="Challenge 2 description"
+          image_url="https://fake.imageurl.com"
+          video_url="https://fake.videourl.com"
+
+          created_at="2022-07-06 10:24:25.501"
+          updated_at="2022-07-06 10:24:25.501"/>
+    <challenges 
+          author_id="1"
+          title="Challenge 3"
+          description="Challenge 3 description"
+          image_url="https://fake.imageurl.com"
+          video_url="https://fake.videourl.com"
+
+          created_at="2022-07-06 10:24:25.501"
+          updated_at="2022-07-06 10:24:25.501"/>
+</dataset>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head lang="en">
+  <link th:href="@{/main.css}" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/5f58b769bf.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <title>My profile</title>
+</head>
+
+<body>
+  <div th:insert="fragments/general :: header"></div>
+
+  <div class="profile">
+    <div class="user-profile-small">
+      <h1 id="username" th:text="${user.firstName}"></h1>
+    </div>
+    <div class="profile-content">
+      <img class="larger-profile-picture" th:src="${user.imageUrl}">
+      <div class="my_details">
+        <h2><span th:text="${user.firstName}"></span>'s details</h2>
+        <ul class="user-details">
+
+          <p>First name:</p>
+          <span id="first_name" th:text="${user.firstName}"></span>
+
+          <p>Last name:</p>
+          <span id="last_name" th:text="${user.lastName}"></span>
+        </ul>
+        <div class="progression-container">
+
+          <div class="stat-1">
+            <div class="stat-box">
+              <p class="stat-number"><span th:text="${user.usersData.totalCompleted}"></p>
+              <p class="stat-description">Challenges Finished</p>
+              <p class="stat-date">April 9 - Present</p>
+            </div>
+          </div>
+          <div class="stat-1">
+            <div class="stat-box">
+              <div class="center-stats">
+                <div class="stat-circle">
+                  <p class="stat-streak"> <span th:text="${user.usersData.streak}"> </p>
+                </div>
+              </div>
+              <p class="stat-description">Current Streak</p>
+              <p class="stat-date">April 9 - Present</p>
+            </div>
+          </div>
+          <div class="stat-1">
+            <div class="stat-box">
+              <p class="stat-number"><span th:text="${user.usersData.highestStreak}"></p>
+              <p class="stat-description">longest streak</p>
+              <p class="stat-date">May 9 - June 2</p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

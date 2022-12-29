@@ -1,0 +1,20 @@
+<dataset>
+    <challenges_completions user_id="1"
+          challenge_id="1"
+          completed_at="2022-02-06 10:24:25.501"/>
+    <challenges_completions user_id="2"
+          challenge_id="1"
+          completed_at="2022-03-06 10:24:25.501"/>
+    <challenges_completions user_id="3"
+          challenge_id="1"
+          completed_at="2022-03-16 10:24:25.501"/>
+    <challenges_completions user_id="1"
+          challenge_id="2"
+          completed_at="2022-06-06 10:24:25.501"/>
+    <challenges_completions user_id="2"
+          challenge_id="3"
+          completed_at="2022-06-16 10:24:25.501"/>
+    <challenges_completions user_id="3"
+          challenge_id="3"
+          completed_at="2022-07-02 10:24:25.501"/>
+</dataset>

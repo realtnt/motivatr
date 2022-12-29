@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<body>
+  <div>
+    <nav th:fragment="header">
+      <ul>
+        <li>
+          <a class="tooltip active" data-tooltip="Home" th:href="@{/home}" id="home">
+            <i class="fas fa-home"></i>
+          </a>
+        </li>
+        <li>
+          <form class="search-form" th:action="@{/users/search}" method="get">
+            <div class="nav-search-bar">
+              <button type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+              <input type="text" name="keyword" th:value="${keyword}" class="search-form-text">
+            </div>
+          </form>
+        </li>
+        <li id="space1"></li>
+        <li>
+          <a th:href="@{/users/profile}">
+            <div class="nav-profile-link tooltip" data-tooltip="Profile">
+              <button id="btn_profile">
+                <img class="post-icon">
+                <img class="post-icon" th:src="${principal.imageUrl}">
+              </button>
+              <span class="nav-profile-name" sec:authentication="name">Name</span>
+            </div>
+          </a>
+        </li>
+        <li id="space1"></li>
+        <li sec:authorize="hasAuthority('ROLE_ADMIN')">
+          <a class="tooltip active" data-tooltip="Add Challenge" th:href="@{/challenges/new}" id="new-challenge">
+            <i class="fa-solid fa-square-plus"></i>
+          </a>
+        </li>
+        <li>
+          <a th:href="@{/challenges/all}" class="tooltip" data-tooltip="Challenges" id="btn_challenges">
+            <i class="fa-solid fa-guitar"></i>
+          </a>
+        </li>
+
+        <li>
+
+          <a class="tooltip" data-tooltip="Logout" id="btn_logout" th:href="@{/logout}">
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div>
+    <nav th:fragment="header-not-logged-in">
+      <ul>
+        <li>
+          <a class="tooltip active" data-tooltip="Home" th:href="@{/login}" id="home">
+            <i class="fas fa-home"></i>
+          </a>
+        </li>
+        <li id="space1"></li>
+        <li>
+          <a class="tooltip" data-tooltip="Sign Up" th:href="@{/users/new}" id="btn_signup">
+            Sign Up
+          </a>
+        </li>
+        <li>
+          <a class="tooltip" data-tooltip="Log In" th:href="@{/login}" id="btn_login">
+            Log In
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+
+  <footer th:fragment="footer">
+    <p>&copy; 2022 VEDoT</p>
+  </footer>
+</body>
+
+</html>

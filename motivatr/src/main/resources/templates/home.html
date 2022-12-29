@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head land="en">
+  <link th:href="@{/main.css}" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/5f58b769bf.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+  <title>Motivatr</title>
+</head>
+
+<body>
+  <!-- <img class="guitar" src="/images/dark-rider.jpg"></div> -->
+  <div th:insert="fragments/general :: header"></div>
+  <img th:if="${isChallengeCompleted}" th:src="@{/images/no_profile_pick.jpeg}"
+    th:onload="confetti({particleCount: 130, spread: 180, origin: {x: 0.5,y:0.6} });" style="display: none;">
+  <div class="margin">
+    <!--challenge div-->
+    <h1>TODAYS CHALLENGE</h1>
+    <div class="container">
+
+      <h1 th:if="${challenge==null}">No challenges posted yet!</h1>
+
+      <div class="challenge-content" th:if="${challenge!=null}">
+
+        <div>
+          <h1 class="challenge-tital" th:text="${challenge.title}"></h1>
+          <p class="challenge-description" th:text="${challenge.description}"></p>
+          <p class="posted-by">Posted by:</p>
+          <div class="user-profile-small">
+            <img class="profile-picture" th:src="${challenge.author.imageUrl}">
+            <p class="user-name">
+              <span th:text="${challenge.author.firstName}"></span>
+              <span th:text="${challenge.author.lastName}"></span>
+            <p>
+          </div>
+        </div>
+
+        <div class="challenge-button">
+          <a th:text="${isChallengeCompleted} ? 'Mark as not done' : 'Mark as done'"
+            th:href="@{/challenge/complete/{challenge_id}(challenge_id=${challenge.id})}" class="btn"></a>
+          </form>
+        </div>
+
+      </div>
+
+      <div class="challenge-media">
+        <iframe 2rem; width="100%" height="100%" th:src="${challenge.videoUrl}" title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+
+    </div>
+    <br>
+    <h1>YOUR SCORE</h1>
+    <div class="progression-container">
+
+      <div class="stat-1">
+        <div class="stat-box">
+          <p class="stat-number"><span th:text="${principal.usersData.totalCompleted}"></p>
+          <p class="stat-description">Challenges Finished</p>
+          <p class="stat-date">April 9 - Present</p>
+        </div>
+      </div>
+      <div class="stat-1">
+        <div class="stat-box">
+          <div class="center-stats">
+            <div class="stat-circle">
+              <p class="stat-streak"> <span th:text="${principal.usersData.streak}"> </p>
+            </div>
+          </div>
+          <p class="stat-description">Current Streak</p>
+          <p class="stat-date">April 9 - Present</p>
+        </div>
+      </div>
+      <div class="stat-1">
+        <div class="stat-box">
+          <p class="stat-number"><span th:text="${principal.usersData.highestStreak}"></p>
+          <p class="stat-description">longest streak</p>
+          <p class="stat-date">May 9 - June 2</p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <br>
+    <div class="top-player-list">
+      <h1>TOP PLAYERS</h1>
+      <ul>
+        <li class="top-player" th:each="toptenuser, iter: ${topten}">
+          <div class="player">
+            <p class="position">#<span th:text="${iter.index + 1}"></p>
+            <a th:href="@{/users/{username}(username=${toptenuser.username})}">
+              <div class="user-profile-small-top-players">
+                <img class="profile-picture" th:src="${toptenuser.imageUrl}"><img>
+                <p class="user-name">
+                  <span th:text="${toptenuser.firstName}"></span>
+                  <span th:text="${toptenuser.lastName}"></span>
+                </p>
+              </div>
+            </a>
+            <div class="progression-container-top-player">
+              <div class="top-player-scores">
+                <p class="top-player-stats" th:text="${toptenuser.usersData.totalCompleted}"></p>
+                <p class="user-name">Challenges Finished:</p>
+              </div>
+              <div class="top-player-scores">
+                <p class="top-player-stats" th:text="${toptenuser.usersData.streak}"></p>
+                <p class="user-name">Current Streak:</p>
+              </div>
+              <div class="top-player-scores">
+                <p class="top-player-stats" th:text="${toptenuser.usersData.highestStreak}"></p>
+                <p class="user-name">longest streak:</p>
+              </div>
+            </div>
+
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  </div>
+</body>
+
+</html>

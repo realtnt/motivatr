@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head lang="en">
+  <link th:href="@{/main.css}" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/5f58b769bf.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <title>My profile</title>
+</head>
+
+<body>
+  <div th:insert="fragments/general :: header"></div>
+
+  <div class="profile">
+    <h1 id="username" th:text="${principal.firstName}"></h1>
+    <div class="user-profile-small">
+      <img class="larger-profile-picture" th:src="@{${principal.imageUrl}}">
+    </div>
+    <div class="profile-content">
+      <div class="my_details">
+        <h2>My details</h2>
+        <ul class="user-details">
+
+          <p>First name:</p>
+          <span id="first_name" th:text="${principal.firstName}"></span>
+
+          <p>Last name:</p>
+          <span id="last_name" th:text="${principal.lastName}"></span>
+
+          <p>Email:</p>
+          <span id="email" th:text="${principal.email}"></span>
+
+          <p>Phone number:</p>
+          <span id="mobile" th:text="${principal.mobile}"></span>
+        </ul>
+      </div>
+
+      <div class="profile-buttons">
+        <a href="/users/edit">
+          <button type="button" class="btn edit_profile_btn" id="edit_profile_btn">Edit my profile</button>
+        </a>
+        <br>
+        <a href="/users/notifications">
+          <button type="button" class="btn edit_notifications_btn" id="edit_notifications_btn">Edit notification
+            settings</button>
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<!--
+  src="/images/no_profile_pick.jpeg"
+-->

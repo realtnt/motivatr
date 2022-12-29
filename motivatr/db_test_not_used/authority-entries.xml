@@ -1,0 +1,11 @@
+<dataset>
+    <authorities 
+          username="user1"
+          authority="ROLE_ADMIN"/>
+    <authorities 
+          username="user2"
+          authority="ROLE_USER"/>
+    <authorities 
+          username="user3"
+          authority="ROLE_USER"/>
+</dataset>

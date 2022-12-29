@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head lang="en">
+  <link th:href="@{/main.css}" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/5f58b769bf.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <title>Notification settings</title>
+</head>
+
+<body>
+  <div th:insert="fragments/general :: header"></div>
+  <div class="margin"></div>
+  <h1>Notification settings</h1>
+  <div class="notification_settings">
+    <form class="notification_settings_form" action="#" th:action="@{/users/notifications}"
+      th:object="${notificationSetting}" method="post">
+      <label for="dailyNotifications">Daily reminders:</label>
+      <input type="checkbox" id="dailyNotifications" name="dailyNotifications"
+        th:checked="${principal.notificationSetting.dailyNotifications}">
+      <br>
+      <label for="textNotifications">text notifications:</label>
+      <input type="checkbox" id="textNotifications" name="textNotifications"
+        th:checked="${principal.notificationSetting.textNotifications}">
+      <br>
+      <label for="emailNotifications">Email notifications:</label>
+      <input type="checkbox" id="emailNotifications" name="emailNotifications"
+        th:checked="${principal.notificationSetting.emailNotifications}">
+      <br>
+      <div class="edit_notification_buttons">
+        <button class="submit_btn" type="submit" id="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+  </div>
+</body>
